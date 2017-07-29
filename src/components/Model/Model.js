@@ -15,10 +15,21 @@ const Layers = styled.div`
 export default class Model extends Component {
     state = {
         layers: [
-            { type: "input", width: 14, height: 15, depth: 15 },
-            { type: "input", width: 10, height: 10, depth: 10 },
-            { type: "input", width: 5, height: 5, depth: 18 },
-            { type: "input", width: 5, height: 18, depth: 1 }
+            { type: 'input', width: 15, height: 15, depth: 3 },
+            {
+                type: 'convolutional',
+                width: 8,
+                height: 8,
+                depth: 15,
+                hyperParameters: {
+                    depth: 5,
+                    stride: 2,
+                    size: [2, 0],
+                    padding: 0
+
+                }
+            },
+            { type: 'recurrent', width: 6, height: 6, depth: 6 }
         ]
     }
     addLayer = (layer) => {
@@ -35,7 +46,11 @@ export default class Model extends Component {
             <Container>
                 <Layers>
                     {layers.map((layer, index) =>
-                        <Layer {...layer} key={layer.depth} />
+                        <Layer
+                            {...layer}
+                            key={layer.depth}
+                            showLabels
+                        />
                     )}
                 </Layers>
                 <Controls addLayer={this.addLayer}/>

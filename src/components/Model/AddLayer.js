@@ -28,7 +28,7 @@ const Button = ({ ...props, label }) => (
 );
 
 const Select = ({ ...props }) => (
-    <select onChange={event => props.onChange(event.target.value)}>
+    <select value={props.value} onChange={event => props.onChange(event.target.value)}>
         {props.children}
     </select>
 );
@@ -91,7 +91,10 @@ export default class AddLayer extends Component {
     renderSelectType = () => {
         const layerTypes = ['dense', 'convolutional', 'recurrent'];
         return (
-            <Select onChange={value => this.setState({ type: value })}>
+            <Select
+                onChange={value => this.setState({ type: value })}
+                value={this.state.type}
+            >
                 {layerTypes.map((layer, index) =>
                     <option
                         value={layer}
