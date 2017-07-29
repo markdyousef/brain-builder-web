@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import Layer from '../Layer';
 
 const Container = styled.div`
-    width: 100%;
-    height: 100%;
-    background-color: #ede;
+    height: 300px;
 `;
 
 const Layers = styled.div`
@@ -18,10 +16,10 @@ export default class Model extends Component {
         return (
             <Container>
                 <Layers>
-                    <Layer type="input"/>
-                    <Layer />
-                    <Layer />
-                    <Layer />
+                    <Layer type="input" width={5} height={20} depth={3} />
+                    <Layer type="input" width={8} height={15} depth={6} />
+                    <Layer type="input" width={4} height={15} depth={10} />
+                    <Layer type="input" width={15} height={10} depth={6} />
                 </Layers>
             </Container>
         )

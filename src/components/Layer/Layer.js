@@ -1,30 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Input from './Input';
-
-const Container = styled.section`
-    width: 200px;
-    max-height: 100%;
-    background-color: #ddd;
-    margin: 5px;
-    display: flex;
-`;
+import Card from '../Card'
+import Label from '../Label';
 
 export default class Layer extends Component {
     renderLayer = () => {
-        const { type } = this.props;
-
+        const { type, width, height, depth } = this.props;
         switch(type) {
             case 'input':
-                return <Input width={5} height={20} depth={3} />
+                return <Input width={width} height={height} depth={depth} />
         }
 
     }
+    renderLabels = () => {
+        return <Label textObject={{...this.props}}/>
+    }
     render() {
         return (
-            <Container>
+            <Card>
                 {this.renderLayer()}
-            </Container>
+                {this.renderLabels()}
+            </Card>
         );
     }
 }
