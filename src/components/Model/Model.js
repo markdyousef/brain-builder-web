@@ -15,10 +15,10 @@ const Layers = styled.div`
 export default class Model extends Component {
     state = {
         layers: [
-            { type: "input", width: 10, height: 6, depth: 3 },
-            { type: "input", width: 10, height: 11, depth: 3 },
-            { type: "input", width: 12, height: 5, depth: 3 },
-            { type: "input", width: 5, height: 5, depth: 3 }
+            { type: "input", width: 14, height: 15, depth: 15 },
+            { type: "input", width: 10, height: 10, depth: 10 },
+            { type: "input", width: 5, height: 5, depth: 18 },
+            { type: "input", width: 5, height: 18, depth: 1 }
         ]
     }
     addLayer = (layer) => {
@@ -31,12 +31,11 @@ export default class Model extends Component {
     }
     render() {
         const { layers } = this.state;
-        console.log('##UPDATE MODEL')
         return (
             <Container>
                 <Layers>
                     {layers.map((layer, index) =>
-                        <Layer {...layer} key={layer.type + index} />
+                        <Layer {...layer} key={layer.depth} />
                     )}
                 </Layers>
                 <Controls addLayer={this.addLayer}/>

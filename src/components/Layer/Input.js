@@ -26,15 +26,20 @@ const Row = styled.div`
     display: flex;
 `;
 
-const renderFront = (height, depth, widthDim) => {
+const renderFront = (height, depth, widthIndex, widthDem) => {
     const heightArray = Array(height).fill(Math.random());
     const depthArray = Array(depth).fill(Math.random());
     return (
-        <Front style={{ left: widthDim * 15, bottom: widthDim * 15}}>
-            {heightArray.map((id, index) =>
-                <Row key={id + index}>
-                    {depthArray.map((id, index) =>
-                        <Neuron key={id + index} dimension={widthDim} />
+        <Front style={{ left: widthIndex * 5, bottom: widthIndex * 7}}>
+            {heightArray.map((id, i) =>
+                <Row key={id + i}>
+                    {depthArray.map((id, j) =>
+                        <Neuron
+                            key={id + j}
+                            dimension={widthIndex}
+                            alpha={(1.0 - (widthIndex / widthDem))}
+                            index={[i,j]}
+                        />
                     )}
                 </Row>
             )}
@@ -43,14 +48,13 @@ const renderFront = (height, depth, widthDim) => {
 }
 
 const renderLayer = (width, height, depth) => {
-    console.log(width, height, depth)
     const widthArray = Array(width).fill(Math.random());
     return (
         <Container>
             <Inner>
                 {widthArray.map((id, index) =>
                     <Row key={id + index}>
-                        {renderFront(height, depth, index)}
+                        {renderFront(height, depth, index, widthArray.length)}
                     </Row>
                 )}
             </Inner>

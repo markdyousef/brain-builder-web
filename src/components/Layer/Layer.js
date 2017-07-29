@@ -18,7 +18,6 @@ export default class Layer extends Component {
         return <Label textObject={{...this.props}}/>
     }
     render() {
-        console.log('Render Layer')
         return (
             <Card>
                 {this.renderLayer()}

@@ -10,8 +10,9 @@ const Container = styled.div`
 
 export default class Neuron extends Component {
     render() {
-        const { dimension } = this.props;
-        const alpha = 1.0 - (dimension / 10);
+        const { dimension, index, alpha } = this.props;
+        // const alpha = 1 - (dimension / index[0]);
+        // console.log(alpha)
         return (
             <Container style={{ backgroundColor: `rgba(27, 4, 170, ${alpha})`}}>
             </Container>
