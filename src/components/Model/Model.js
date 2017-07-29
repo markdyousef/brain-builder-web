@@ -24,7 +24,11 @@ export default class Model extends Component {
                 hyperParameters: {
                     depth: 5,
                     stride: 2,
-                    size: [2, 0],
+                    filter: {
+                        width: 2,
+                        height: 2,
+                        depth: 2
+                    },
                     padding: 0
 
                 }
