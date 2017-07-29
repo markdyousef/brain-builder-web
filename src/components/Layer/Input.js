@@ -43,6 +43,7 @@ const renderFront = (height, depth, widthDim) => {
 }
 
 const renderLayer = (width, height, depth) => {
+    console.log(width, height, depth)
     const widthArray = Array(width).fill(Math.random());
     return (
         <Container>

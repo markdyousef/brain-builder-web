@@ -4,12 +4,8 @@ import Model from '../Model';
 
 const Container = styled.section`
     max-width: 100%;
-    height: 300px;
+    height: 350px;
     background-color: #fafafa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
 `;
 
 export default () => {

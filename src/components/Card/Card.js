@@ -10,7 +10,7 @@ const Card = styled.nav`
     display: flex;
     flex-direction: column;
     ${''/* position: relative; */}
-    min-width: 300px;
+    min-width: 250px;
     overflow: hidden;
 `;
 
